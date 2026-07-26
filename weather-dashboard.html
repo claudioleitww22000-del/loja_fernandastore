@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard - Previsão do Tempo</title>
+    <link rel="stylesheet" href="weather-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- LOADER -->
+    <div id="loader" class="loader">
+        <div class="spinner"></div>
+        <p>Carregando dados climáticos...</p>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-cloud-sun"></i>
+                    <h1>Weather Dashboard</h1>
+                </div>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Buscar cidade..." class="search-input">
+                    <button id="searchBtn" class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <div id="suggestionsList" class="suggestions-list"></div>
+                </div>
+                <button id="locationBtn" class="location-btn" title="Usar localização atual">
+                    <i class="fas fa-map-marker-alt"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <div class="container">
+            <!-- ERRO -->
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+            <!-- CLIMA ATUAL -->
+            <section id="currentWeather" class="current-weather" style="display: none;">
+                <div class="weather-header">
+                    <div class="city-info">
+                        <h2 id="cityName"></h2>
+                        <p id="currentDate"></p>
+                    </div>
+                    <div class="current-temp">
+                        <img id="weatherIcon" src="" alt="Ícone do clima" class="weather-icon-large">
+                        <div class="temp-info">
+                            <span id="temperature" class="temperature"></span>
+                            <p id="weatherDescription"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <i class="fas fa-tint"></i>
+                        <p>Umidade</p>
+                        <span id="humidity"></span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-wind"></i>
+                        <p>Vento</p>
+                        <span id="windSpeed"></span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-eye"></i>
+                        <p>Visibilidade</p>
+                        <span id="visibility"></span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-compress"></i>
+                        <p>Pressão</p>
+                        <span id="pressure"></span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-thermometer-half"></i>
+                        <p>Sensação</p>
+                        <span id="feelsLike"></span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-sun"></i>
+                        <p>UV Index</p>
+                        <span id="uvIndex"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PREVISÃO DE 5 DIAS -->
+            <section id="forecastSection" class="forecast-section" style="display: none;">
+                <h3>Previsão para os Próximos 5 Dias</h3>
+                <div id="forecastContainer" class="forecast-grid"></div>
+            </section>
+
+            <!-- PREVISÃO POR HORA -->
+            <section id="hourlySection" class="hourly-section" style="display: none;">
+                <h3>Previsão Horária (Próximas 24h)</h3>
+                <div id="hourlyContainer" class="hourly-grid"></div>
+            </section>
+
+            <!-- CIDADES FAVORITAS -->
+            <section id="favoritesSection" class="favorites-section" style="display: none;">
+                <h3>Cidades Favoritas</h3>
+                <div id="favoritesContainer" class="favorites-grid"></div>
+            </section>
+
+            <!-- MAPA -->
+            <section id="mapSection" class="map-section" style="display: none;">
+                <h3>Mapa de Satélite</h3>
+                <div id="mapContainer" class="map-container">
+                    <iframe id="mapFrame" src="" frameborder="0" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>Weather Dashboard © 2026 | Dados fornecidos por <strong>OpenWeatherMap API</strong></p>
+            <div class="footer-links">
+                <a href="#" id="toggleUnit">°C / °F</a>
+                <a href="#">Sobre</a>
+                <a href="#">Contato</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="weather-script.js"></script>
+</body>
+</html>
